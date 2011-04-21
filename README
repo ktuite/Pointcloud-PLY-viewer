@@ -3,3 +3,13 @@ Pointcloud viewer for 3D models stored in PLY format
 
 By ... Kathleen Tuite (kathleen.tuite@gmail.com)
 April 20, 2011
+
+How to use:
+The files in bin-debug should be enough to let you run the code. There's an example html page that has the swf embedded in it. There are flash_vars defined in the HTML saying where the point cloud file is and what initial scale should be used. The included ply file (hosted on my school website) uses an initial scale of about 300. The user of this flash program can move the model around using the mouse and keyboard. Clicking and dragging with no extra keys pressed rotates the model. Also pressing Shift lets the user pan around. Pressing Alt lets the user zoom in and out. The scroll wheel also works to zoom but it will scroll the rest of the page, too. 
+
+How to compile/edit yourself:
+I used Flash Builder 4. Approximate steps:
+- make an actionscript project named "PlyViewer" and put the src code in src/
+- download Sandy3D (www.flashsandy.org)
+- fix sandy (it will complain about something in VirtualMouse.as and Node.as... this handy blog post by Nadine may help you out: http://nuubu.blogspot.com/2010/12/getting-sandy3d-312-working-on-flash.html) 
+- add the flash_vars described in bin-debug/PlyViewer.html to index.template.html inside the folder html-template. 
