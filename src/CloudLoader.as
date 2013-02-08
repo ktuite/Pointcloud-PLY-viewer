@@ -50,12 +50,15 @@ package
 			
 			for (var i:int = 0; i < lines.length; i++){
 				var line:String = lines[i].toString();
+				
+				line = line.replace(/^\s+|\s+$/gs, '');
 				var d:Array = line.split(" ");
 				var r:int, g:int, b:int, color:uint;
 				if (!foundVertexCount && d.length == 3 && d[1] == "vertex"){
 					foundVertexCount = true;
 					vertexCount = d[2];
 				}
+				
 				if (d.length == 9){
 					r = d[6];
 					g = d[7];
@@ -63,7 +66,7 @@ package
 					cloud.addPoint(d[0], d[1], d[2], r, g, b);
 					dispatchEvent(new Event(NEW_POINT));
 				}
-				else if (d.length == 6){
+				else if (d.length == 6 || d.length == 7){
 					r = d[3];
 					g = d[4];
 					b = d[5];
